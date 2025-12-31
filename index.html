@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>З Новим роком 🎄</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+      background-size: 600% 600%;
+      animation: gradient 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      user-select: none;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+
+    
+    .card {
+      position: relative;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(18px);
+      border-radius: 25px;
+      padding: 40px 30px;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+      animation: appear 1.2s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes appear {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 30px;
+      margin-bottom: 18px;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .small {
+      font-size: 14px;
+      opacity: 0.85;
+      font-style: italic;
+      animation: fadeIn 2.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>🎄 З Новим роком!</h1>
+
+    <p>
+      Хочу побажати тобі тепла — не лише зимового, а й душевного.
+      Нехай у новому році буде багато радості, щирих моментів
+      і приємних несподіванок ✨
+    </p>
+
+    <p class="small">
+      Я радий, що ми познайомились наприкінці цього року.
+      Нехай 2026 рік принесе тобі ще більше світлих емоцій 🙂
+    </p>
+  </div>
+
+ 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const snowCount = 60;
+
+      for (let i = 0; i < snowCount; i++) {
+        const snow = document.createElement("div");
+        snow.className = "snowflake";
+        snow.innerHTML = "❄";
+
+        snow.style.left = Math.random() * 100 + "vw";
+        snow.style.fontSize = 12 + Math.random() * 18 + "px";
+        snow.style.opacity = Math.random();
+        snow.style.animationDuration = 6 + Math.random() * 10 + "s";
+        snow.style.animationDelay = Math.random() * 5 + "s";
+
+        document.body.appendChild(snow);
+      }
+    });
+  </script>
+
+</body>
+</html>
